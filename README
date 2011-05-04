@@ -1,0 +1,36 @@
+Requirements
+============
+
+- recent perl version
+- Text::CSV_XS
+- Date::Parse
+
+Usage
+=====
+
+Edit the script to change the accounts:
+
+my $netacc='Assets:Current Assets:Paypal';
+my $grossacc='Income:Paypal-import';
+my $feeacc='Expenses:Fees:Paypal';
+
+Run the script:
+
+perl gnupal.pl < Downloaded.csv > paypal.qif
+
+The script will:
+
+- book the gross total of the transaction in $grossacc
+- book the paypal transaction fee in $feeacc
+- book the net total (gross minus fee) in $netacc
+
+After importing in GNUCash you must manually move the split transactions
+from the account defined in $grossacc to the right income and expense
+accounts.
+
+Contact
+=======
+
+If you have problems using this script, let me know. I will try and fix
+it for you. You can send me an email on gmc@sonologic.nl.
+
